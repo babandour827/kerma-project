@@ -14,7 +14,7 @@ const HeroSection = () => {
             {/* Logo principal */}
             <div className="max-w-6xl mx-auto my-3 py-3 text-center shadow-md rounded-[10%] bg-white relative z-10 w-[13rem] h-[13rem] flex items-center justify-center">
               <OptimizedImage
-                src="/lovable-uploads/1acd9e00-26c7-4d47-ae6e-582e79e80298.png" 
+                src="/uploads/1acd9e00-26c7-4d47-ae6e-582e79e80298.png" 
                 className="max-w-6xl mx-auto p-3 text-center shadow-lg relative rounded-[10%] z-11 w-[9rem] transition-transform duration-300"
                 alt="KĒRMA Developments Logo"
               />   

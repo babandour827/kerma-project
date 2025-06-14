@@ -11,7 +11,7 @@ const About = () => {
       <div 
         className="fixed inset-0 opacity-[0.008] pointer-events-none bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('/lovable-uploads/204fb4d0-d00d-4292-954c-34279fd2b8d7.png')`,
+          backgroundImage: `url('/uploads/204fb4d0-d00d-4292-954c-34279fd2b8d7.png')`,
           backgroundSize: '400px auto',
           backgroundPosition: 'center center'
         }}
