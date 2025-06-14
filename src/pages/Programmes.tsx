@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Building, MapPin, Download } from 'lucide-react';
+import Videofram from '@/pages/videoFram';
+
 
 const Programmes = () => {
   const commodities = [
@@ -61,7 +63,7 @@ const Programmes = () => {
                       Résidence THANYS
                     </h3>
                     <p className="text-gray-600 font-light">Architecture d'Exception</p>
-                    <p className="text-gray-500 mt-3 text-sm">Visuel 3D à venir</p>
+
                   </div>
                 </div>
                 
@@ -116,6 +118,8 @@ const Programmes = () => {
                     </div>
                   </div>
 
+
+                  <Videofram/>
                   {/* Commodités */}
                   <div>
                     <h4 className="font-medium text-gray-900 mb-8 text-lg">Commodités Exclusives</h4>
