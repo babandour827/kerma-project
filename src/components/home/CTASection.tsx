@@ -1,8 +1,7 @@
-
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
-import AnimatedSection from '@/components/AnimatedSection';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import AnimatedSection from "@/components/AnimatedSection";
 
 const CTASection = () => {
   return (
@@ -14,21 +13,30 @@ const CTASection = () => {
             <div className="w-1.5 h-1.5 bg-kerma-turquoise rounded-full mr-2 animate-pulse"></div>
             Prêt à investir ?
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-thin text-white mb-6 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-thin text-gray-400 mb-6 tracking-tight">
             Votre avenir commence ici
           </h2>
-          <p className="text-base sm:text-lg lg:text-xl text-white/80 mb-8 sm:mb-12 font-light max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 font-light max-w-2xl mx-auto">
             Découvrez nos programmes immobiliers d'exception à Dakar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
-            <Button asChild className="group bg-white hover:bg-gray-50 kerma-brown border-0 px-8 sm:px-10 py-4 sm:py-6 h-auto text-sm sm:text-base font-normal rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl w-full sm:w-auto">
-              <Link to="/programmes" className="flex items-center justify-center gap-3">
+            <Button
+              asChild
+              className="group bg-white hover:bg-gray-50 kerma-brown border-0 px-8 sm:px-10 py-4 sm:py-6 h-auto text-sm sm:text-base font-normal rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl w-full sm:w-auto"
+            >
+              <Link
+                to="/programmes"
+                className="flex items-center justify-center gap-3"
+              >
                 Voir nos programmes
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
-            <Button asChild variant="outline" className="group bg-transparent hover:bg-white/10 border-white/30 hover:border-white/50 text-white hover:text-white px-8 sm:px-10 py-4 sm:py-6 h-auto text-sm sm:text-base font-normal rounded-full transition-all duration-300 hover:scale-[1.02] w-full sm:w-auto">
-              <Link to="/a-propos" className="transition-colors justify-center">
+            <Button
+              asChild
+              className="group bg-transparent  border-white/30 bg-amber-800 text-white px-8 sm:px-10 py-4 sm:py-6 h-auto text-sm sm:text-base font-normal rounded-full transition-all duration-300 hover:scale-[1.02] w-full sm:w-auto"
+            >
+              <Link to="/a-propos" className="justify-center">
                 En savoir plus
               </Link>
             </Button>

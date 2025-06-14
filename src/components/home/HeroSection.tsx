@@ -12,21 +12,21 @@ const HeroSection = () => {
         <AnimatedSection animation="fadeIn" delay={200}>
           <div className="mb-8 lg:mb-12">
             {/* Logo principal */}
-            <div className="max-w-6xl mx-auto my-3 py-3 text-center shadow-md relative z-10 w-[9rem] ">
+            <div className="max-w-6xl mx-auto my-3 py-3 text-center shadow-md rounded-[10%] bg-white relative z-10 w-[13rem] h-[13rem] flex items-center justify-center">
               <OptimizedImage
-                src="/lovable-uploads/1acd9e00-26c7-4d47-ae6e-582e79e80298.png"
-                className="max-w-6xl mx-auto p-3 text-center shadow-lg relative z-11 w-[7rem] "
+                src="/lovable-uploads/1acd9e00-26c7-4d47-ae6e-582e79e80298.png" 
+                className="max-w-6xl mx-auto p-3 text-center shadow-lg relative rounded-[10%] z-11 w-[9rem] transition-transform duration-300"
                 alt="KĒRMA Developments Logo"
               />   
             </div>
-            <span className="inline-flex items-center px-6 py-3 bg-white/95 backdrop-blur-sm text-gray-600 rounded-full text-sm font-medium border border-gray-200/50 shadow-sm">
+            <div className="inline-flex items-center px-6 py-3 bg-white/95 backdrop-blur-sm text-gray-600 rounded-full text-sm font-medium border border-gray-200/50 shadow-sm">
               <div className="w-2 h-2 bg-kerma-turquoise rounded-full mr-3 animate-pulse"></div>
               Promoteur Immobilier d'Excellence
-            </span>
+            </div>
           </div>
         </AnimatedSection>
         
-        <AnimatedSection animation="slideUp" delay={400}>
+        {/* <AnimatedSection animation="slideUp" delay={400}>
           <div className="space-y-6 lg:space-y-8 mb-12 lg:mb-16">
             <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-black kerma-brown leading-none tracking-tight">
               KĒRMA
@@ -35,11 +35,11 @@ const HeroSection = () => {
               Developments
             </div>
           </div>
-        </AnimatedSection>
+        </AnimatedSection> */}
         
         <AnimatedSection animation="fadeIn" delay={600}>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-12 lg:mb-16 leading-relaxed max-w-3xl mx-auto font-light">
-            Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
+            Chez <span className='text-amber-800'> KĒRMA </span> <small className='text-blue-300' >Developments</small>, Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
           </p>
         </AnimatedSection>
         
