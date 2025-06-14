@@ -77,7 +77,3 @@ Les contributions sont les bienvenues ! Pour proposer des améliorations :
 3. Commitez vos modifications (`git commit -m "feat: ajout de ..."`)..
 4. Pushez la branche (`git push origin feature/ma-fonctionnalite`).
 5. Ouvrez une Pull Request.
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
