@@ -49,23 +49,18 @@ const Navigation = () => {
           {/* Logo KĒRMA plus visible */}
           <div className="flex-shrink-0">
             <Link
-              to="/accueil"
+              to="/"
               className="group relative flex items-center focus:outline-none focus:ring-2 focus:ring-sky-300 rounded-lg p-2"
               aria-label="Retour à l'accueil"
             >
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/lovable-uploads/f543da29-a9a9-4cd9-b721-e17c365929ad.png" 
+                  src="/uploads/8a248a4e-db11-46c5-aa58-42e802640f3c.png" 
                   alt="KĒRMA DEVELOPMENTS" 
                   className="h-12 sm:h-14 lg:h-16 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
                 />
                 <div className="hidden sm:block">
-                  <div className="text-brown-900 font-bold text-lg lg:text-xl tracking-wide">
-                    KĒRMA
-                  </div>
-                  <div className="text-sky-700 font-medium text-xs lg:text-sm uppercase tracking-wider">
-                    Developments
-                  </div>
+                 
                 </div>
               </div>
             </Link>
