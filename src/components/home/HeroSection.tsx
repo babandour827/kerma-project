@@ -19,10 +19,12 @@ const HeroSection = () => {
                 alt="KĒRMA Developments Logo"
               />   
             </div>
-            <div className="inline-flex items-center px-6 py-3 bg-white/95 backdrop-blur-sm text-gray-600 rounded-full text-sm font-medium border border-gray-200/50 shadow-sm">
+            <span className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-white/95 via-white/98 to-white/95 backdrop-blur-md text-gray-700 rounded-full text-sm lg:text-base font-medium border border-gradient-to-r from-gray-200/60 via-gray-100/40 to-gray-200/60 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105">
               <div className="w-2 h-2 bg-kerma-turquoise rounded-full mr-3 animate-pulse"></div>
+              
+              <div className="w-2.5 h-2.5 bg-gradient-to-r from-kerma-turquoise to-kerma-turquoise-light rounded-full mr-4 animate-pulse-glow"></div>
               Promoteur Immobilier d'Excellence
-            </div>
+            </span>
           </div>
         </AnimatedSection>
         
