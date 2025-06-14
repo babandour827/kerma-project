@@ -12,9 +12,10 @@ const HeroSection = () => {
         <AnimatedSection animation="fadeIn" delay={200}>
           <div className="mb-8 lg:mb-12">
             {/* Logo principal */}
-            <div className="max-w-6xl mx-auto my-3 text-center shadow-md relative z-10 w-[5rem] ">
+            <div className="max-w-6xl mx-auto my-3 py-3 text-center shadow-md relative z-10 w-[9rem] ">
               <OptimizedImage
                 src="/lovable-uploads/1acd9e00-26c7-4d47-ae6e-582e79e80298.png"
+                className="max-w-6xl mx-auto p-3 text-center shadow-lg relative z-11 w-[7rem] "
                 alt="KĒRMA Developments Logo"
               />   
             </div>
