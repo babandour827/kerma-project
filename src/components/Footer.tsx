@@ -9,9 +9,10 @@ const Footer = () => {
           {/* Logo et Description */}
           <div className="space-y-4">
             <img 
-              src="/uploads/8a248a4e-db11-46c5-aa58-42e802640f3c.png" 
+              src="/uploads/8a248a4e-db11-46c5-aa58-42e802640f3c.png
+              " 
               alt="KĒRMA Developments" 
-              className="h-12 w-auto brightness-0 invert"
+              className="h-12 w-auto"
             />
             <p className="text-sm text-gray-300">
               Nous créons des espaces de vie pensés pour votre confort et votre bien-être.
@@ -23,7 +24,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Contact</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <p>Dakar, Sénégal</p>
-              <p>Téléphone: +221 XX XXX XX XX</p>
+              <p>Téléphone: +221 779222788</p>
               <p>Email: contact@kerma-developments.com</p>
             </div>
           </div>
@@ -57,7 +58,7 @@ const Footer = () => {
         <div className="border-t border-gray-600 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-300">
-              © 2024 KĒRMA Developments. Tous droits réservés.
+              © 2025 KĒRMA Developments. Tous droits réservés.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/mentions-legales" className="text-sm text-gray-300 hover:text-white transition-colors">
