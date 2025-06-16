@@ -180,19 +180,26 @@ const Investir = () => {
                     </div>
                   </div>
 
-                  <div>
-                    <Label htmlFor="etage">Étage souhaité (si disponible)</Label>
-                    <Select value={formData.etage} onValueChange={(value) => handleInputChange('etage', value)}>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Sélectionnez un étage" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1-3">1er - 3ème étage</SelectItem>
-                        <SelectItem value="4-6">4ème - 6ème étage</SelectItem>
-                        <SelectItem value="7-10">7ème - 10ème étage</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
+                     <div>
+              <Label htmlFor="etage">Étage souhaité (si disponible)</Label>
+              <Select value={formData.etage} onValueChange={(value) => handleInputChange('etage', value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Sélectionnez un étage" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">1er étage</SelectItem>
+                  <SelectItem value="2">2ème étage</SelectItem>
+                  <SelectItem value="3">3ème étage</SelectItem>
+                  <SelectItem value="4">4ème étage</SelectItem>
+                  <SelectItem value="5">5ème étage</SelectItem>
+                  <SelectItem value="6">6ème étage</SelectItem>
+                  <SelectItem value="7">7ème étage</SelectItem>
+                  <SelectItem value="8">8ème étage</SelectItem>
+                  <SelectItem value="9">9ème étage</SelectItem>
+                  <SelectItem value="10">10ème étage</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
                 </div>
 
                 {/* Financement */}
