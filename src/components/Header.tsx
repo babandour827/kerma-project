@@ -55,7 +55,7 @@ const Navigation = () => {
             >
               <div className="flex items-center space-x-3">
                 <img 
-                  src="/uploads/8a248a4e-db11-46c5-aa58-42e802640f3c.png" 
+                  src="/uploads/204fb4d0-d00d-4292-954c-34279fd2b8d7.png" 
                   alt="KĒRMA DEVELOPMENTS" 
                   className="h-12 sm:h-14 lg:h-16 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
                 />
