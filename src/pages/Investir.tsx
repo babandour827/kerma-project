@@ -60,7 +60,7 @@ const Investir = () => {
       description: "Confirmation avec acompte de 5% du prix de vente"
     },
     {
-      title: "Signature notaire (20%)",
+      title: "Signature devant notaire ",
       description: "Signature du contrat de vente en état futur d'achèvement"
     },
     {
@@ -79,10 +79,10 @@ const Investir = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-bold text-kerma-brown mb-6">
-            Investir avec KĒRMA
+            Investir avec KĒRMA Developments
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Découvrez nos opportunités d'investissement immobilier et bénéficiez de notre accompagnement personnalisé.
+            Saisissez nos opportunités d'investissement  et bénéficiez d'un accompagnement personnalisé.
           </p>
         </div>
 
@@ -187,6 +187,7 @@ const Investir = () => {
                   <SelectValue placeholder="Sélectionnez un étage" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="0">Rez-de-chaussée</SelectItem>
                   <SelectItem value="1">1er étage</SelectItem>
                   <SelectItem value="2">2ème étage</SelectItem>
                   <SelectItem value="3">3ème étage</SelectItem>
@@ -243,7 +244,7 @@ const Investir = () => {
                     En soumettant ce formulaire, vous exprimez votre intérêt pour un bien immobilier. 
                     Cette démarche ne vous engage pas de manière définitive. Notre équipe vous contactera 
                     dans les plus brefs délais pour vous informer des suites et des modalités liées à la 
-                    pré-réservation avec un acompte de 5%.
+                    réservation.
                   </p>
                   
                   <Button type="submit" className="w-full bg-kerma-brown hover:bg-kerma-brown/90">
@@ -286,34 +287,63 @@ const Investir = () => {
               </CardContent>
             </Card>
 
-            {/* Avantages */}
-            <Card className="shadow-xl">
-              <CardHeader>
-                <CardTitle className="text-xl text-kerma-brown">
-                  Avantages VEFA
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="text-kerma-blue">•</span>
-                    <span>Garantie décennale et parfait achèvement</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-kerma-blue">•</span>
-                    <span>Paiements échelonnés selon l'avancement</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-kerma-blue">•</span>
-                    <span>Protection juridique renforcée</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-kerma-blue">•</span>
-                    <span>Accompagnement personnalisé</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+           {/* Échéancier VEFA */}
+<Card className="shadow-xl">
+  <CardHeader>
+    <CardTitle className="text-xl text-kerma-brown">
+      Échéancier VEFA
+    </CardTitle>
+  </CardHeader>
+  <CardContent>
+    <ul className="space-y-3 text-sm">
+      <li className="flex justify-between border-b pb-1">
+        <span>Signature du contrat de réservation</span>
+        <span className="text-kerma-blue font-semibold">5%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Démarrage des travaux (ouverture de chantier)</span>
+        <span className="text-kerma-blue font-semibold">15%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Achèvement de l’étage 1</span>
+        <span className="text-kerma-blue font-semibold">10%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Achèvement de l’étage 4</span>
+        <span className="text-kerma-blue font-semibold">10%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Achèvement de l’étage 7</span>
+        <span className="text-kerma-blue font-semibold">10%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Mise hors d’eau (toiture posée)</span>
+        <span className="text-kerma-blue font-semibold">15%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Revêtements muraux et de sol (carrelage, peinture, etc.)</span>
+        <span className="text-kerma-blue font-semibold">10%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Pose appareillage électrique + équipements sanitaires</span>
+        <span className="text-kerma-blue font-semibold">8%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Mise hors d’air (menuiseries extérieures posées)</span>
+        <span className="text-kerma-blue font-semibold">8%</span>
+      </li>
+      <li className="flex justify-between border-b pb-1">
+        <span>Pré-réception (avant remise officielle)</span>
+        <span className="text-kerma-blue font-semibold">5%</span>
+      </li>
+      <li className="flex justify-between">
+        <span>Remise des clés (livraison)</span>
+        <span className="text-kerma-blue font-semibold">4%</span>
+      </li>
+    </ul>
+  </CardContent>
+</Card>
+
           </div>
         </div>
       </div>

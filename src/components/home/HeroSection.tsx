@@ -41,7 +41,7 @@ const HeroSection = () => {
         
         <AnimatedSection animation="fadeIn" delay={600}>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-12 lg:mb-16 leading-relaxed max-w-3xl mx-auto font-light">
-            Chez <span className='text-amber-800'> KĒRMA </span> <small className='text-blue-300' >Developments</small>, Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
+            Chez <span className='text-amber-800'> KĒRMA </span> <span className='text-blue-300' >Developments</span>, Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
           </p>
         </AnimatedSection>
         
@@ -49,7 +49,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
             <Button asChild className="group relative bg-kerma-brown hover:bg-kerma-brown/90 text-white border-0 px-10 py-6 h-auto text-base font-medium rounded-full transition-all duration-300 hover:scale-[1.02] shadow-lg hover:shadow-xl w-full sm:w-auto">
               <Link to="/programmes" className="flex items-center justify-center gap-3">
-                Découvrir nos programmes
+                Notre Programme
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>

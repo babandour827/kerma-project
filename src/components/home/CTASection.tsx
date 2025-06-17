@@ -14,7 +14,7 @@ const CTASection = () => {
             Prêt à investir ?
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-5xl font-thin text-gray-400 mb-6 tracking-tight">
-            Votre avenir commence ici
+            Donner du sens à votre capital
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-gray-400 mb-8 sm:mb-12 font-light max-w-2xl mx-auto">
             Découvrez nos programmes immobiliers d'exception à Dakar.

@@ -24,7 +24,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Contact</h3>
             <div className="space-y-2 text-sm text-gray-300">
               <p>Dakar, Sénégal</p>
-              <p>Téléphone: +221 779222788</p>
+              <p>Téléphone: +221 773103371</p>
               <p>Email: contact@kerma-developments.com</p>
             </div>
           </div>

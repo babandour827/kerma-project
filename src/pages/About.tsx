@@ -21,9 +21,9 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-gray-200/50 text-sm text-gray-600 mb-8">
-            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            Notre Histoire
-          </div>
+           <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            
+          </div> 
           <h1 className="text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
             À Propos de
             <br />
@@ -51,7 +51,7 @@ const About = () => {
               </p>
               <p className="text-gray-600 leading-relaxed">
                 Nos projets sont pensés pour les familles, les investisseurs, d'ici et de l'étranger. Notre ambition : 
-                élever les standards de l'immobilier au Sénégal et en Afrique de l'Ouest.
+                élever les standards de l'immobilier au Sénégal et en Afrique de l'Ouest,avec rigueur, innovation et impact. Elle est le fruit de l’association entre plusieurs compétences aguerries issues du monde de la Construction et des Finances
               </p>
             </div>
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50">
@@ -85,10 +85,10 @@ const About = () => {
                   <div>
                     <h3 className="font-medium text-gray-900 mb-2">Expertise Technique</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
-                      <li>• Architectes diplômés</li>
-                      <li>• Ingénieurs BTP expérimentés</li>
-                      <li>• Maîtres d'œuvre qualifiés</li>
-                      <li>• Équipes de construction intégrées</li>
+                      <li>• Architectes </li>
+                      <li>• Ingénieurs Génie civil</li>
+                      <li>• Bureaux d'études et de contrôle partenaires</li>
+                      <li>• chefs de chantier experimentés et ouvriers bien formés</li>
                     </ul>
                   </div>
                 </div>
@@ -102,8 +102,8 @@ const About = () => {
                   <div>
                     <h3 className="font-medium text-gray-900 mb-2">Accompagnement Commercial</h3>
                     <ul className="space-y-2 text-sm text-gray-600">
-                      <li>• Conseillers en investissement</li>
-                      <li>• Experts en financement immobilier</li>
+                      <li>• Conseils en investissement</li>
+                      <li>• connseils en financement immobilier</li>
                       <li>• Gestionnaires de patrimoine</li>
                       <li>• Réseau d'agences partenaires</li>
                     </ul>
