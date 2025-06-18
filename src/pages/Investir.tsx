@@ -1,5 +1,5 @@
-
-import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -9,7 +9,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 
+// Mes ID 
+const EMAILJS_SERVICE_ID = "service_31qb3ok";
+const EMAILJS_TEMPLATE_ID = "template_9scl5ux";
+const EMAILJS_USER_ID = "mWTTYoKEo9e_85kFs";
+
 const Investir = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nom: '',
     telephone: '',
@@ -18,35 +24,91 @@ const Investir = () => {
     typeBien: '',
     etage: '',
     financement: '',
-    commentaires: ''
+    commentaires: '',
+    consentement: false,
+    captcha: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     // Validation simple
     if (!formData.nom || !formData.telephone || !formData.email || !formData.pays || !formData.typeBien) {
       toast.error('Veuillez remplir tous les champs obligatoires');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Validation email
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      toast.error('Veuillez entrer une adresse email valide');
+      setIsSubmitting(false);
       return;
     }
 
-    console.log('Formulaire soumis:', formData);
-    toast.success('Votre pré-réservation a été envoyée avec succès !');
+    // Validation téléphone
+    if (!/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(formData.telephone)) {
+      toast.error('Veuillez entrer un numéro de téléphone valide');
+      setIsSubmitting(false);
+      return;
+    }
     
-    // Reset form
-    setFormData({
-      nom: '',
-      telephone: '',
-      email: '',
-      pays: '',
-      typeBien: '',
-      etage: '',
-      financement: '',
-      commentaires: ''
-    });
+    // Validation consentement
+    if (!formData.consentement) {
+      toast.error('Veuillez accepter le traitement de vos données');
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Validation captcha
+    if (!formData.captcha) {
+      toast.error('Veuillez confirmer que vous n\'êtes pas un robot');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const templateParams = {
+        ...formData,
+        date: new Date().toLocaleString('fr-FR')
+      };
+
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+
+      toast.success('Votre pré-réservation a été envoyée avec succès !', {
+        description: 'Notre équipe vous contactera dans les 24 heures',
+        duration: 5000,
+        position: 'top-center'
+      });
+      
+      // Reset form
+      setFormData({
+        nom: '',
+        telephone: '',
+        email: '',
+        pays: '',
+        typeBien: '',
+        etage: '',
+        financement: '',
+        commentaires: '',
+        consentement: false,
+        captcha: false
+      });
+    } catch (error) {
+      console.error("Erreur d'envoi:", error);
+      toast.error('Une erreur est survenue. Veuillez réessayer.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: string, value: string | boolean) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
@@ -74,7 +136,18 @@ const Investir = () => {
   ];
 
   return (
-    <div className="min-h-screen py-16">
+    <div className="min-h-screen py-16 relative">
+      {/* Overlay de chargement */}
+      {isSubmitting && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg flex flex-col items-center shadow-xl">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-kerma-brown mb-4"></div>
+            <p className="text-lg font-medium">Envoi en cours...</p>
+            <p className="text-sm text-gray-600">Veuillez patienter</p>
+          </div>
+        </div>
+      )}
+      
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -82,7 +155,7 @@ const Investir = () => {
             Investir avec KĒRMA Developments
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Saisissez nos opportunités d'investissement  et bénéficiez d'un accompagnement personnalisé.
+            Saisissez nos opportunités d'investissement et bénéficiez d'un accompagnement personnalisé.
           </p>
         </div>
 
@@ -172,7 +245,9 @@ const Investir = () => {
                           <Checkbox
                             id={type}
                             checked={formData.typeBien === type}
-                            onCheckedChange={() => handleInputChange('typeBien', type)}
+                            onCheckedChange={(checked) => {
+                              if (checked) handleInputChange('typeBien', type)
+                            }}
                           />
                           <Label htmlFor={type}>{type}</Label>
                         </div>
@@ -180,27 +255,27 @@ const Investir = () => {
                     </div>
                   </div>
 
-                     <div>
-              <Label htmlFor="etage">Étage souhaité (si disponible)</Label>
-              <Select value={formData.etage} onValueChange={(value) => handleInputChange('etage', value)}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Sélectionnez un étage" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="0">Rez-de-chaussée</SelectItem>
-                  <SelectItem value="1">1er étage</SelectItem>
-                  <SelectItem value="2">2ème étage</SelectItem>
-                  <SelectItem value="3">3ème étage</SelectItem>
-                  <SelectItem value="4">4ème étage</SelectItem>
-                  <SelectItem value="5">5ème étage</SelectItem>
-                  <SelectItem value="6">6ème étage</SelectItem>
-                  <SelectItem value="7">7ème étage</SelectItem>
-                  <SelectItem value="8">8ème étage</SelectItem>
-                  <SelectItem value="9">9ème étage</SelectItem>
-                  <SelectItem value="10">10ème étage</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
+                  <div>
+                    <Label htmlFor="etage">Étage souhaité (si disponible)</Label>
+                    <Select value={formData.etage} onValueChange={(value) => handleInputChange('etage', value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Sélectionnez un étage" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="0">Rez-de-chaussée</SelectItem>
+                        <SelectItem value="1">1er étage</SelectItem>
+                        <SelectItem value="2">2ème étage</SelectItem>
+                        <SelectItem value="3">3ème étage</SelectItem>
+                        <SelectItem value="4">4ème étage</SelectItem>
+                        <SelectItem value="5">5ème étage</SelectItem>
+                        <SelectItem value="6">6ème étage</SelectItem>
+                        <SelectItem value="7">7ème étage</SelectItem>
+                        <SelectItem value="8">8ème étage</SelectItem>
+                        <SelectItem value="9">9ème étage</SelectItem>
+                        <SelectItem value="10">10ème étage</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 {/* Financement */}
@@ -215,7 +290,9 @@ const Investir = () => {
                         <Checkbox
                           id={option}
                           checked={formData.financement === option}
-                          onCheckedChange={() => handleInputChange('financement', option)}
+                          onCheckedChange={(checked) => {
+                            if (checked) handleInputChange('financement', option)
+                          }}
                         />
                         <Label htmlFor={option}>{option}</Label>
                       </div>
@@ -237,6 +314,34 @@ const Investir = () => {
                   />
                 </div>
 
+                {/* Consentement RGPD */}
+                <div className="space-y-4 p-4 bg-gray-50 rounded-lg">
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="consentement"
+                      checked={formData.consentement}
+                      onCheckedChange={(checked) => handleInputChange('consentement', !!checked)}
+                      required
+                    />
+                    <Label htmlFor="consentement" className="font-normal">
+                      J'accepte que mes données personnelles soient utilisées pour traiter ma demande de pré-réservation. 
+                      Je comprends que ces données seront conservées par KERMA Developments conformément à notre politique de confidentialité.
+                    </Label>
+                  </div>
+                  
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="captcha"
+                      checked={formData.captcha}
+                      onCheckedChange={(checked) => handleInputChange('captcha', !!checked)}
+                      required
+                    />
+                    <Label htmlFor="captcha" className="font-normal">
+                      Je ne suis pas un robot
+                    </Label>
+                  </div>
+                </div>
+
                 {/* Validation */}
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h3 className="font-semibold text-kerma-brown mb-2">Validation</h3>
@@ -247,8 +352,12 @@ const Investir = () => {
                     réservation.
                   </p>
                   
-                  <Button type="submit" className="w-full bg-kerma-brown hover:bg-kerma-brown/90">
-                    Soumettre ma demande de pré-réservation
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-kerma-brown hover:bg-kerma-brown/90 text-white"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Envoi en cours...' : 'Soumettre ma demande de pré-réservation'}
                   </Button>
                 </div>
               </form>
@@ -287,63 +396,62 @@ const Investir = () => {
               </CardContent>
             </Card>
 
-           {/* Échéancier VEFA */}
-<Card className="shadow-xl">
-  <CardHeader>
-    <CardTitle className="text-xl text-kerma-brown">
-      Échéancier VEFA
-    </CardTitle>
-  </CardHeader>
-  <CardContent>
-    <ul className="space-y-3 text-sm">
-      <li className="flex justify-between border-b pb-1">
-        <span>Signature du contrat de réservation</span>
-        <span className="text-kerma-blue font-semibold">5%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Démarrage des travaux (ouverture de chantier)</span>
-        <span className="text-kerma-blue font-semibold">15%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Achèvement de l’étage 1</span>
-        <span className="text-kerma-blue font-semibold">10%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Achèvement de l’étage 4</span>
-        <span className="text-kerma-blue font-semibold">10%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Achèvement de l’étage 7</span>
-        <span className="text-kerma-blue font-semibold">10%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Mise hors d’eau (toiture posée)</span>
-        <span className="text-kerma-blue font-semibold">15%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Revêtements muraux et de sol (carrelage, peinture, etc.)</span>
-        <span className="text-kerma-blue font-semibold">10%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Pose appareillage électrique + équipements sanitaires</span>
-        <span className="text-kerma-blue font-semibold">8%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Mise hors d’air (menuiseries extérieures posées)</span>
-        <span className="text-kerma-blue font-semibold">8%</span>
-      </li>
-      <li className="flex justify-between border-b pb-1">
-        <span>Pré-réception (avant remise officielle)</span>
-        <span className="text-kerma-blue font-semibold">5%</span>
-      </li>
-      <li className="flex justify-between">
-        <span>Remise des clés (livraison)</span>
-        <span className="text-kerma-blue font-semibold">4%</span>
-      </li>
-    </ul>
-  </CardContent>
-</Card>
-
+            {/* Échéancier VEFA */}
+            <Card className="shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-xl text-kerma-brown">
+                  Échéancier VEFA
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Signature du contrat de réservation</span>
+                    <span className="text-kerma-blue font-semibold">5%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Démarrage des travaux (ouverture de chantier)</span>
+                    <span className="text-kerma-blue font-semibold">15%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Achèvement de l'étage 1</span>
+                    <span className="text-kerma-blue font-semibold">10%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Achèvement de l'étage 4</span>
+                    <span className="text-kerma-blue font-semibold">10%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Achèvement de l'étage 7</span>
+                    <span className="text-kerma-blue font-semibold">10%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Mise hors d'eau (toiture posée)</span>
+                    <span className="text-kerma-blue font-semibold">15%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Revêtements muraux et de sol</span>
+                    <span className="text-kerma-blue font-semibold">10%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Pose appareillage électrique + sanitaires</span>
+                    <span className="text-kerma-blue font-semibold">8%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Mise hors d'air (menuiseries extérieures)</span>
+                    <span className="text-kerma-blue font-semibold">8%</span>
+                  </li>
+                  <li className="flex justify-between border-b pb-1">
+                    <span>Pré-réception (avant remise officielle)</span>
+                    <span className="text-kerma-blue font-semibold">5%</span>
+                  </li>
+                  <li className="flex justify-between">
+                    <span>Remise des clés (livraison)</span>
+                    <span className="text-kerma-blue font-semibold">4%</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
