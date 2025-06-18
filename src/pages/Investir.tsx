@@ -1,4 +1,4 @@
-
+import emailjs from '@emailjs/browser';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,7 +9,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 
+// Mes ID 
+const EMAILJS_SERVICE_ID = "service_31qb3ok";
+const EMAILJS_TEMPLATE_ID = "template_9scl5ux";
+const EMAILJS_USER_ID = "mWTTYoKEo9e_85kFs";
+
 const Investir = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nom: '',
     telephone: '',
@@ -21,29 +27,50 @@ const Investir = () => {
     commentaires: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     
     // Validation simple
     if (!formData.nom || !formData.telephone || !formData.email || !formData.pays || !formData.typeBien) {
       toast.error('Veuillez remplir tous les champs obligatoires');
+      setIsSubmitting(false);
       return;
     }
 
-    console.log('Formulaire soumis:', formData);
-    toast.success('Votre pré-réservation a été envoyée avec succès !');
-    
-    // Reset form
-    setFormData({
-      nom: '',
-      telephone: '',
-      email: '',
-      pays: '',
-      typeBien: '',
-      etage: '',
-      financement: '',
-      commentaires: ''
-    });
+    try {
+      const templateParams = {
+        ...formData,
+        date: new Date().toLocaleString('fr-FR')
+      };
+
+      
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_USER_ID
+      );
+
+      toast.success('Votre pré-réservation a été envoyée avec succès !');
+      
+      // Reset form
+      setFormData({
+        nom: '',
+        telephone: '',
+        email: '',
+        pays: '',
+        typeBien: '',
+        etage: '',
+        financement: '',
+        commentaires: ''
+      });
+    } catch (error) {
+      console.error("Erreur d'envoi:", error);
+      toast.error('Une erreur est survenue. Veuillez réessayer.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -247,8 +274,12 @@ const Investir = () => {
                     réservation.
                   </p>
                   
-                  <Button type="submit" className="w-full bg-kerma-brown hover:bg-kerma-brown/90">
-                    Soumettre ma demande de pré-réservation
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-kerma-brown hover:bg-kerma-brown/90"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Envoi en cours...' : 'Soumettre ma demande de pré-réservation'}
                   </Button>
                 </div>
               </form>
