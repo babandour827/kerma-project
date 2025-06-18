@@ -10,9 +10,9 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
 
 // Mes ID 
-const EMAILJS_SERVICE_ID = "service_31qb3ok";
-const EMAILJS_TEMPLATE_ID = "template_9scl5ux";
-const EMAILJS_USER_ID = "mWTTYoKEo9e_85kFs";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
 
 const Investir = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,7 +48,7 @@ const Investir = () => {
     }
 
     // Validation téléphone
-    if (!/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/.test(formData.telephone)) {
+    if (!/^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/.test(formData.telephone)) {
       toast.error('Veuillez entrer un numéro de téléphone valide');
       setIsSubmitting(false);
       return;
