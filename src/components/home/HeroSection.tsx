@@ -41,7 +41,7 @@ const HeroSection = () => {
         
         <AnimatedSection animation="fadeIn" delay={600}>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-12 lg:mb-16 leading-relaxed max-w-3xl mx-auto font-light">
-            Chez <span className='text-amber-800'> KĒRMA </span> <span className='text-blue-300' >Developments</span>, Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
+            Chez <span className='text-black-800'> KĒRMA </span> <span className='text-black-300' >Developments</span>, Nous créons des espaces de vie pensés pour votre confort, votre bien-être et votre avenir.
           </p>
         </AnimatedSection>
         

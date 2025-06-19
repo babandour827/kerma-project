@@ -14,7 +14,7 @@ const ValuesSection = () => {
       icon: Building2,
       title: "Maîtrise technique",
       shortDescription: "Nos équipes de construction et notre encadrement technique expérimenté garantissent des ouvrages solides et fiables.",
-      fullDescription: "Grâce à nos propres équipes de construction et à un encadrement technique expérimenté, nous contrôlons un haut niveau de contrôle sur l'ensemble du processus de réalisation. Cette expertise nous permet de garantir des ouvrages solides, fiables et réalisés dans les règles de l'art, avec une qualité de finition parfaite."
+      fullDescription: "Grâce à nos propres équipes de construction et à un encadrement technique expérimenté, nous assurons un haut niveau de contrôle sur l'ensemble du processus de réalisation. Cette expertise nous permet de garantir des ouvrages solides, fiables et réalisés dans les règles de l'art, avec une qualité de finition parfaite."
     },
     {
       icon: Shield,

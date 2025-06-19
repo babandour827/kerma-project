@@ -105,7 +105,7 @@ const Programmes = () => {
             Nos Programmes
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-        Découvrez nos projet immobiliers d'exceptions alliant élégance, confort et qualité de vie.
+        Découvrez nos programmes immobiliers d'exceptions alliant élégance, confort et qualité de vie.
           </p>
           <div className="w-16 h-px bg-gray-300 mx-auto mt-6"></div>
         </div>
@@ -236,7 +236,12 @@ const Programmes = () => {
                     asChild 
                     className="bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white py-4 md:py-3 rounded-lg font-medium shadow-md transition-all"
                   >
-                    <Link to="/investir" className="flex items-center justify-center gap-2">
+                    {/* Modification: Ajout de onClick pour scroller en haut */}
+                    <Link 
+                      to="/investir" 
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="flex items-center justify-center gap-2"
+                    >
                       <span>Pré-réserver {window.innerWidth >= 768 ? '' : 'maintenant'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>

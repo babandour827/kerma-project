@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-gray-300">
               <p>Dakar, Sénégal</p>
               <p>Téléphone: +221 773103371</p>
-              <p>Email: contact@kerma-developments.com</p>
+              <p>Email: racinetoure@kermadevelopments.com</p>
             </div>
           </div>
 
