@@ -1,5 +1,5 @@
 import emailjs from '@emailjs/browser';
-import { useState, useEffect } from 'react';
+import { useState, useMemo, useEffect } from 'react'; // Ajout de useEffect
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { toast } from 'sonner';
+import { countries } from 'countries-list'; 
 
 // Mes ID 
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -28,6 +29,22 @@ const Investir = () => {
     consentement: false,
     captcha: false
   });
+
+  // Ajout: Scroll en haut de page au chargement du composant
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // Création de la liste des pays avec noms français
+  const countryList = useMemo(() => {
+    return Object.entries(countries)
+      .map(([code, country]) => ({
+        code,
+        name: country.name,
+        frenchName: country.translations?.fr || country.name
+      }))
+      .sort((a, b) => a.frenchName.localeCompare(b.frenchName));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -219,13 +236,19 @@ const Investir = () => {
                       <SelectTrigger>
                         <SelectValue placeholder="Sélectionnez votre pays" />
                       </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="senegal">Sénégal</SelectItem>
-                        <SelectItem value="france">France</SelectItem>
-                        <SelectItem value="cote-ivoire">Côte d'Ivoire</SelectItem>
-                        <SelectItem value="mali">Mali</SelectItem>
-                        <SelectItem value="burkina-faso">Burkina Faso</SelectItem>
+                      <SelectContent className="max-h-[300px] overflow-y-auto">
+                        {/* Option "Autre" en premier */}
                         <SelectItem value="autre">Autre</SelectItem>
+                        
+                        {/* Liste complète des pays */}
+                        {countryList.map(country => (
+                          <SelectItem 
+                            key={country.code} 
+                            value={country.frenchName.toLowerCase().replace(/\s+/g, '-')}
+                          >
+                            {country.frenchName}
+                          </SelectItem>
+                        ))}
                       </SelectContent>
                     </Select>
                   </div>
@@ -364,12 +387,12 @@ const Investir = () => {
             </CardContent>
           </Card>
 
-          {/* Processus VEFA */}
+          {/* Processus d'acquisition */}
           <div className="space-y-8">
             <Card className="shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl text-kerma-brown">
-                  Processus VEFA
+                  Processus d'acquisition
                 </CardTitle>
                 <p className="text-sm text-gray-600">
                   Vente en État Futur d'Achèvement - Sécurité et transparence garanties
@@ -414,15 +437,15 @@ const Investir = () => {
                     <span className="text-kerma-blue font-semibold">15%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">
-                    <span>Achèvement de l'étage 1</span>
+                    <span>Achèvement du plancher de l'étage 1</span>
                     <span className="text-kerma-blue font-semibold">10%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">
-                    <span>Achèvement de l'étage 4</span>
+                    <span>Achèvement du plancher de l'étage 4</span>
                     <span className="text-kerma-blue font-semibold">10%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">
-                    <span>Achèvement de l'étage 7</span>
+                    <span>Achèvement du plancher de l'étage 7</span>
                     <span className="text-kerma-blue font-semibold">10%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">

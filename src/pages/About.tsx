@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { Building2, Users, Award, Heart, Target, Lightbulb, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -50,7 +49,7 @@ const About = () => {
                 Notre vision est de concevoir des cadres de vie durables, élégants et fonctionnels.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Nos projets sont pensés pour les familles, les investisseurs, d'ici et de l'étranger. Notre ambition : 
+                Nos programmes sont pensés pour les familles, les investisseurs, d'ici et de l'étranger. Notre ambition : 
                 élever les standards de l'immobilier au Sénégal et en Afrique de l'Ouest,avec rigueur, innovation et impact. Elle est le fruit de l’association entre plusieurs compétences aguerries issues du monde de la Construction et des Finances
               </p>
             </div>
@@ -72,7 +71,7 @@ const About = () => {
                 Une équipe multidisciplinaire
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                KĒRMA Developments réunit des experts en architecture, ingénierie, finance immobilière et gestion de projet.
+                KĒRMA Developments réunit des talents qualifiés en architecture, ingénierie, finance immobilière et gestion de projet.
               </p>
             </div>
             
@@ -180,17 +179,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-2">Valoriser le savoir-faire local</h4>
-                  <p className="text-sm text-white/70">en travaillant avec des artisans et entreprises sénégalaises</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-medium mb-2">Respecter l'environnement</h4>
-                  <p className="text-sm text-white/70">en utilisant des matériaux durables et techniques éco-responsables</p>
+                  <p className="text-sm text-white/70">En travaillant avec des artisans et entreprises sénégalaises</p>
                 </div>
               </div>
               
@@ -200,7 +189,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-2">Promouvoir l'architecture contemporaine</h4>
-                  <p className="text-sm text-white/70">en alliant modernité et identité culturelle</p>
+                  <p className="text-sm text-white/70">En alliant modernité et identité culturelle</p>
                 </div>
               </div>
               
@@ -210,7 +199,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-2">Contribuer au développement urbain</h4>
-                  <p className="text-sm text-white/70">en créant des espaces qui enrichissent le tissu urbain local</p>
+                  <p className="text-sm text-white/70">En créant des espaces qui enrichissent le tissu urbain local</p>
                 </div>
               </div>
             </div>
