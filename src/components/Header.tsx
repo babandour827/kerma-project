@@ -57,7 +57,7 @@ const Navigation = () => {
                 <img 
                   src="/uploads/204fb4d0-d00d-4292-954c-34279fd2b8d7.png" 
                   alt="KĒRMA DEVELOPMENTS" 
-                  className="h-12 sm:h-14 lg:h-16 w-auto group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
+                  className="h-12 sm:h-14 lg:h-16 fs- group-hover:scale-105 transition-transform duration-300 drop-shadow-lg"
                 />
                 <div className="hidden sm:block">
                  
