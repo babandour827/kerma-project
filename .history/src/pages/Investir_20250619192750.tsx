@@ -457,7 +457,7 @@ const Investir = () => {
                     <span className="text-kerma-blue font-semibold">10%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">
-                    <span>Pose appareillages électriques + sanitaires</span>
+                    <span>Pose appareillage électrique + sanitaires</span>
                     <span className="text-kerma-blue font-semibold">8%</span>
                   </li>
                   <li className="flex justify-between border-b pb-1">
