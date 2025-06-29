@@ -7,7 +7,7 @@ const Videofram = () => {
       <div className="max-w-5xl mx-auto mb-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-light text-gray-900 mb-4">
-            Découvrez le programme en Vidéo.
+            Découvrez le programme en Vidéo
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
           </p>
