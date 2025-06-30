@@ -49,13 +49,21 @@ export default function Programmes() {
       </div>
 
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-        {/* Rétablissement du ratio 16:9 pour l'image */}
-        <div className="aspect-w-16 aspect-h-9">
-          <img
-            src="/uploads/view_building_3D.jpg"
-            alt="Résidence Thanys"
-            className="object-cover w-full h-full"
-          />
+        {/* Conteneur relatif pour positionner la bannière */}
+        <div className="relative">
+          <div className="aspect-w-16 aspect-h-9">
+            <img
+              src="/uploads/view_building_3D.jpg"
+              alt="Résidence Thanys"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          
+          {/* Bannière élégante et discrète */}
+          <div className="absolute bottom-4 left-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm text-white px-4 py-2 rounded-sm flex items-center">
+            <div className="w-1 h-1 bg-emerald-400 rounded-full mr-2 animate-pulse"></div>
+            <span className="font-light text-sm tracking-wider">PROGRAMME EN COURS</span>
+          </div>
         </div>
         
         <div className="p-6">
