@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Link } from 'react-router-dom';
-import { 
-  ArrowRight, 
-  Building, 
-  MapPin, 
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Building,
+  MapPin,
   Download,
   Waves,
   Dumbbell,
@@ -17,14 +17,16 @@ import {
   DoorOpen,
   Sparkles,
   ChevronDown,
-  ChevronUp
-} from 'lucide-react';
-import Videofram from '@/pages/videoFram';
+  ChevronUp,
+} from "lucide-react";
+import Videofram from "@/pages/videoFram";
 
 const Programmes = () => {
   // État pour gérer les commodités déployées
-  const [expandedCommodity, setExpandedCommodity] = useState<number | null>(null);
-  
+  const [expandedCommodity, setExpandedCommodity] = useState<number | null>(
+    null
+  );
+
   // Palette de couleurs pour les icônes
   const iconColors = {
     blue: "text-blue-500",
@@ -35,46 +37,47 @@ const Programmes = () => {
   };
 
   const commodities = [
-    { 
-      icon: <Waves className={`w-5 h-5 ${iconColors.blue}`} />, 
-      title: "Piscine panoramique", 
-      description: "Espace de détente avec vue imprenable sur le ciel de Dakar"
+    {
+      icon: <Waves className={`w-5 h-5 ${iconColors.blue}`} />,
+      title: "Piscine panoramique",
+      description: "Espace de détente avec vue imprenable sur le ciel de Dakar",
     },
-    { 
-      icon: <Dumbbell className={`w-5 h-5 ${iconColors.teal}`} />, 
-      title: "Salle de sport", 
-      description: "Équipements modernes dans un cadre intimiste sur la terrasse"
+    {
+      icon: <Dumbbell className={`w-5 h-5 ${iconColors.teal}`} />,
+      title: "Salle de sport",
+      description:
+        "Équipements modernes dans un cadre intimiste sur la terrasse",
     },
-    { 
-      icon: <Sofa className={`w-5 h-5 ${iconColors.amber}`} />, 
-      title: "Lounge exclusif", 
-      description: "Espace chic et apaisant pour recevoir ou se détendre"
+    {
+      icon: <Sofa className={`w-5 h-5 ${iconColors.amber}`} />,
+      title: "Lounge exclusif",
+      description: "Espace chic et apaisant pour recevoir ou se détendre",
     },
-    { 
-      icon: <DoorOpen className={`w-5 h-5 ${iconColors.indigo}`} />, 
-      title: "Lobby raffiné", 
-      description: "Hall d'accueil lumineux aux finitions haut de gamme"
+    {
+      icon: <DoorOpen className={`w-5 h-5 ${iconColors.indigo}`} />,
+      title: "Lobby raffiné",
+      description: "Hall d'accueil lumineux aux finitions haut de gamme",
     },
-    { 
-      icon: <ParkingCircle className={`w-5 h-5 ${iconColors.gray}`} />, 
-      title: "Parking sécurisé", 
-      description: "Places disponibles au sous-sol et au rez-de-chaussée"
+    {
+      icon: <ParkingCircle className={`w-5 h-5 ${iconColors.gray}`} />,
+      title: "Parking sécurisé",
+      description: "Places disponibles au sous-sol et au rez-de-chaussée",
     },
-    { 
-      icon: <Shield className={`w-5 h-5 ${iconColors.indigo}`} />, 
-      title: "Sécurité 24h/24", 
-      description: "Gardiennage et vidéosurveillance permanente"
+    {
+      icon: <Shield className={`w-5 h-5 ${iconColors.indigo}`} />,
+      title: "Sécurité 24h/24",
+      description: "Gardiennage et vidéosurveillance permanente",
     },
-    { 
-      icon: <Layout className={`w-5 h-5 ${iconColors.blue}`} />, 
-      title: "Baies vitrées", 
-      description: "Double vitrage pour isolation thermique et acoustique"
+    {
+      icon: <Layout className={`w-5 h-5 ${iconColors.blue}`} />,
+      title: "Baies vitrées",
+      description: "Double vitrage pour isolation thermique et acoustique",
     },
-    { 
-      icon: <Sparkles className={`w-5 h-5 ${iconColors.amber}`} />, 
-      title: "Finitions premium", 
-      description: "Matériaux de qualité et attention aux détails"
-    }
+    {
+      icon: <Sparkles className={`w-5 h-5 ${iconColors.amber}`} />,
+      title: "Finitions premium",
+      description: "Matériaux de qualité et attention aux détails",
+    },
   ];
 
   const toggleCommodity = (index: number) => {
@@ -84,15 +87,15 @@ const Programmes = () => {
   return (
     <div className="min-h-screen bg-white py-12 md:py-16">
       {/* Logo Background */}
-      <div 
+      <div
         className="fixed inset-0 opacity-[0.01] pointer-events-none bg-center bg-no-repeat"
         style={{
           backgroundImage: `url('/uploads/204fb4d0-d00d-4292-954c-34279fd2b8d7.png')`,
-          backgroundSize: '600px auto',
-          backgroundPosition: 'center center'
+          backgroundSize: "600px auto",
+          backgroundPosition: "center center",
         }}
       />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <div className="text-center mb-12 md:mb-16">
@@ -101,12 +104,15 @@ const Programmes = () => {
               Nos Programmes d'Exception
             </span>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-            Nos Programmes
-          </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto font-light">
-        Découvrez nos programmes immobiliers d'exceptions alliant élégance, confort et qualité de vie.
-          </p>
+          <div className="flex items-center justify-center">
+            <img
+              src="/uploads/brand-kerma-gold.png"
+              alt="KĒRMA DEVELOPMENTS"
+              className="transition-transform duration-300 drop-shadow-lg"
+              style={{ width: "20rem", height: "auto" }}
+            />
+          </div>
+
           <div className="w-16 h-px bg-gray-300 mx-auto mt-6"></div>
         </div>
 
@@ -115,20 +121,19 @@ const Programmes = () => {
           <Card className="overflow-hidden border-0 shadow-sm bg-white">
             <div className="grid grid-cols-1 xl:grid-cols-2">
               {/* Visual Section */}
-              <div className="relative h-64 md:h-80 xl:h-auto bg-gray-50 overflow-hidden flex items-center justify-center">
+              <div className="relative h-64 md:h-80 xl:h-auto bg-gray-50 overflow-hidden flex items-start justify-center">
                 <div className="text-center p-6">
-                  <div className="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Building className="w-8 h-8 text-gray-600" />
-                  </div>
-                  <h3 className="text-2xl font-light text-gray-900 mb-2">
-                    Résidence THANYS
-                  </h3>
-                  <p className="text-gray-600 text-sm">Architecture d'Exception</p>
+                  <img
+                    src="/uploads/view_building_3D.jpg"
+                    alt="KĒRMA DEVELOPMENTS"
+                    className="transition-transform duration-300 drop-shadow-lg"
+                    style={{ width: "40rem", height: "auto" }}
+                  />
                 </div>
-                
-                <Badge className="absolute top-4 left-4 bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 text-xs font-normal rounded-none">
+
+                {/* <Badge className="absolute top-4 left-4 bg-gray-900 hover:bg-gray-800 text-white px-3 py-1 text-xs font-normal rounded-none">
                   Programme en cours
-                </Badge>
+                </Badge> */}
               </div>
 
               {/* Content Section */}
@@ -137,7 +142,9 @@ const Programmes = () => {
                 <div className="mb-6">
                   <div className="flex items-center gap-2 mb-2">
                     <MapPin className="w-4 h-4 text-gray-500" />
-                    <span className="text-gray-600 text-sm">Dakar, Sénégal</span>
+                    <span className="text-gray-600 text-sm">
+                      Dakar, Sénégal
+                    </span>
                   </div>
                   <CardTitle className="text-2xl md:text-3xl font-light text-gray-900">
                     Résidence THANYS
@@ -146,8 +153,9 @@ const Programmes = () => {
 
                 {/* Description concise */}
                 <p className="text-gray-600 text-sm md:text-base mb-6">
-                  Programme immobilier d'exception alliant élégance, confort et qualité de vie. 
-                  Appartements généreux pour familles, professionnels et investisseurs exigeants.
+                  Programme immobilier d'exception alliant élégance, confort et
+                  qualité de vie. Appartements généreux pour familles,
+                  professionnels et investisseurs exigeants.
                 </p>
 
                 {/* Grille combinée Caractéristiques + Commodités */}
@@ -161,33 +169,43 @@ const Programmes = () => {
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-                        <span className="text-gray-700 text-sm">10 étages d'exception</span>
+                        <span className="text-gray-700 text-sm">
+                          10 étages d'exception
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-                        <span className="text-gray-700 text-sm">Appartements F2, F3, F4</span>
+                        <span className="text-gray-700 text-sm">
+                          Appartements F2, F3, F4
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-                        <span className="text-gray-700 text-sm">Finitions et matériaux premium</span>
+                        <span className="text-gray-700 text-sm">
+                          Finitions et matériaux premium
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
-                        <span className="text-gray-700 text-sm">Terrasse commune aménagée avec vue panoramique</span>
+                        <span className="text-gray-700 text-sm">
+                          Terrasse commune aménagée avec vue panoramique
+                        </span>
                       </div>
                     </div>
                   </div>
 
                   {/* Commodités avec boutons "Découvrir" */}
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-4 text-base">Commodités Exclusives</h4>
+                    <h4 className="font-medium text-gray-900 mb-4 text-base">
+                      Commodités Exclusives
+                    </h4>
                     <div className="space-y-3">
                       {commodities.map((commodity, index) => (
-                        <div 
-                          key={index} 
+                        <div
+                          key={index}
                           className="border border-gray-100 rounded-lg overflow-hidden transition-all duration-300 hover:border-gray-200"
                         >
-                          <div 
+                          <div
                             className="flex items-center justify-between p-3 cursor-pointer hover:bg-gray-50 transition-colors"
                             onClick={() => toggleCommodity(index)}
                           >
@@ -199,9 +217,9 @@ const Programmes = () => {
                                 {commodity.title}
                               </span>
                             </div>
-                            <Button 
-                              variant="ghost" 
-                              size="icon" 
+                            <Button
+                              variant="ghost"
+                              size="icon"
                               className="w-6 h-6 text-gray-500 hover:bg-transparent"
                             >
                               {expandedCommodity === index ? (
@@ -211,7 +229,7 @@ const Programmes = () => {
                               )}
                             </Button>
                           </div>
-                          
+
                           {expandedCommodity === index && (
                             <div className="p-4 bg-gray-50 border-t border-gray-100 animate-fadeIn">
                               <p className="text-gray-600 text-sm italic">
@@ -232,23 +250,26 @@ const Programmes = () => {
 
                 {/* Boutons unifiés - Toujours en bas */}
                 <div className="flex flex-col md:flex-row gap-4">
-                  <Button 
-                    asChild 
+                  <Button
+                    asChild
                     className="bg-gradient-to-r from-gray-900 to-gray-800 hover:from-gray-800 hover:to-gray-700 text-white py-4 md:py-3 rounded-lg font-medium shadow-md transition-all"
                   >
                     {/* Modification: Ajout de onClick pour scroller en haut */}
-                    <Link 
-                      to="/investir" 
+                    <Link
+                      to="/investir"
                       onClick={() => window.scrollTo(0, 0)}
                       className="flex items-center justify-center gap-2"
                     >
-                      <span>Pré-réserver {window.innerWidth >= 768 ? '' : 'maintenant'}</span>
+                      <span>
+                        Pré-réserver{" "}
+                        {window.innerWidth >= 768 ? "" : "maintenant"}
+                      </span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </Button>
-                  
-                  <Button 
-                    variant="outline" 
+
+                  <Button
+                    variant="outline"
                     className="py-4 md:py-3 rounded-lg border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition-all hover:shadow"
                   >
                     <Download className="w-4 h-4 mr-2" />
