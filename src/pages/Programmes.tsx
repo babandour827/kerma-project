@@ -59,10 +59,12 @@ export default function Programmes() {
             />
           </div>
           
-          {/* Bannière élégante et discrète */}
-          <div className="absolute bottom-4 left-4 bg-gradient-to-r from-gray-900/80 to-gray-800/80 backdrop-blur-sm text-white px-4 py-2 rounded-sm flex items-center">
-            <div className="w-1 h-1 bg-emerald-400 rounded-full mr-2 animate-pulse"></div>
-            <span className="font-light text-sm tracking-wider">PROGRAMME EN COURS</span>
+          {/* Bannière pulsante en haut à gauche */}
+          <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-900/90 to-blue-700/90 backdrop-blur-sm text-white px-4 py-2 rounded-r-lg border-l-4 border-gold-500 shadow-lg animate-pulse">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
+              <span className="font-light text-sm tracking-wider">PROGRAMME EN COURS</span>
+            </div>
           </div>
         </div>
         
