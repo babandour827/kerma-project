@@ -49,13 +49,23 @@ export default function Programmes() {
       </div>
 
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
-        {/* Rétablissement du ratio 16:9 pour l'image */}
-        <div className="aspect-w-16 aspect-h-9">
-          <img
-            src="/uploads/view_building_3D.jpg"
-            alt="Résidence Thanys"
-            className="object-cover w-full h-full"
-          />
+        {/* Conteneur relatif pour positionner la bannière */}
+        <div className="relative">
+          <div className="aspect-w-16 aspect-h-9">
+            <img
+              src="/uploads/view_building_3D.jpg"
+              alt="Résidence Thanys"
+              className="object-cover w-full h-full"
+            />
+          </div>
+          
+          {/* Bannière pulsante en haut à gauche */}
+          <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-900/90 to-blue-700/90 backdrop-blur-sm text-white px-4 py-2 rounded-r-lg border-l-4 border-gold-500 shadow-lg animate-pulse">
+            <div className="flex items-center">
+              <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
+              <span className="font-light text-sm tracking-wider">PROGRAMME EN COURS</span>
+            </div>
+          </div>
         </div>
         
         <div className="p-6">
@@ -131,7 +141,7 @@ export default function Programmes() {
               className="flex-1 bg-gray-900 text-white py-3 shadow hover:bg-gray-800"
             >
               <Link to="/investir" onClick={() => window.scrollTo(0, 0)}>
-                Pré-réserver maintenant <ArrowRight className="ml-2 w-4 h-4 inline" />
+                Pré-réserver maintenant ! <ArrowRight className="ml-2 w-4 h-4 inline" />
               </Link>
             </Button>
             <Button
