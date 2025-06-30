@@ -70,8 +70,8 @@ const Programmes = () => {
     },
     {
       icon: <Layout className={`w-5 h-5 ${iconColors.blue}`} />,
-      title: "Baies vitrées",
-      description: "Double vitrage pour isolation thermique et acoustique",
+      title: "confort thermique et acoustique",
+      description: "Grandes baies vitrées avec double vitrage pour une meilleure isolation et un éclairage naturel",
     },
     {
       icon: <Sparkles className={`w-5 h-5 ${iconColors.amber}`} />,
@@ -147,7 +147,7 @@ const Programmes = () => {
                     </span>
                   </div>
                   <CardTitle className="text-2xl md:text-3xl font-light text-gray-900">
-                    Résidence THANYS
+                    Résidence <em>THANYS</em>
                   </CardTitle>
                 </div>
 
@@ -155,7 +155,15 @@ const Programmes = () => {
                 <p className="text-gray-600 text-sm md:text-base mb-6">
                   Programme immobilier d'exception alliant élégance, confort et
                   qualité de vie. Appartements généreux pour familles,
-                  professionnels et investisseurs exigeants.
+                  professionnels et investisseurs exigeants.<p>
+  À l’image de Tanis, ancienne capitale de l’Égypte antique connue pour son urbanisme raffiné et ses constructions monumentales en pierre, <strong><em>Thanys</em></strong> rend hommage à une architecture puissante, sobre et élégante.
+</p>
+<p>
+  Ce lien symbolique se retrouve dans la conception du bâtiment : lignes épurées, matériaux nobles, structure imposante et harmonie des volumes.
+</p>
+<p>
+  Comme Tanis, <strong><em>Thanys</em></strong> est pensé pour traverser le temps, en alliant héritage architectural et exigence contemporaine.
+</p>
                 </p>
 
                 {/* Grille combinée Caractéristiques + Commodités */}
