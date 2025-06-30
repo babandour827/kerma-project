@@ -139,7 +139,7 @@ export default function Programmes() {
               className="flex-1 bg-gray-900 text-white py-3 shadow hover:bg-gray-800"
             >
               <Link to="/investir" onClick={() => window.scrollTo(0, 0)}>
-                Pré-réserver maintenant <ArrowRight className="ml-2 w-4 h-4 inline" />
+                Pré-réserver maintenant ! <ArrowRight className="ml-2 w-4 h-4 inline" />
               </Link>
             </Button>
             <Button
