@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   Download, ArrowRight, MapPin, Waves, Dumbbell, Sofa, 
@@ -31,6 +31,23 @@ const iconColors = [
 
 export default function Programmes() {
   const [expanded, setExpanded] = useState(null);
+  const [buildingImageLoaded, setBuildingImageLoaded] = useState(false);
+  const [logoImageLoaded, setLogoImageLoaded] = useState(false);
+
+  // Précharger les images importantes
+  useEffect(() => {
+    const preloadImages = async () => {
+      const buildingImg = new Image();
+      buildingImg.src = "/uploads/view_building_3D.jpg";
+      buildingImg.onload = () => setBuildingImageLoaded(true);
+      
+      const logoImg = new Image();
+      logoImg.src = "/uploads/brand-kerma-gold.png";
+      logoImg.onload = () => setLogoImageLoaded(true);
+    };
+    
+    preloadImages();
+  }, []);
 
   return (
     <div className="bg-white py-10 px-4 sm:px-6 lg:px-8">
@@ -41,31 +58,43 @@ export default function Programmes() {
           </span>
         </div>
         
-        <img
-          src="/uploads/brand-kerma-gold.png"
-          alt="KĒRMA DEVELOPMENTS"
-          className="mx-auto w-44 sm:w-52 mb-6"
-        />
+        {/* Logo avec placeholder pendant le chargement */}
+        <div className={`transition-opacity duration-500 ${logoImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
+          <img
+            src="/uploads/brand-kerma-gold.png"
+            alt="KĒRMA DEVELOPMENTS"
+            className="mx-auto w-44 sm:w-52 mb-6"
+            loading="eager"
+          />
+        </div>
+        {!logoImageLoaded && (
+          <div className="mx-auto w-44 sm:w-52 h-16 mb-6 bg-gray-100 rounded-md animate-pulse"></div>
+        )}
       </div>
 
       <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
         {/* Conteneur relatif pour positionner la bannière */}
         <div className="relative">
-          <div className="aspect-w-16 aspect-h-9">
+          {/* Placeholder pendant le chargement de l'image du bâtiment */}
+          {!buildingImageLoaded && (
+            <div className="aspect-w-16 aspect-h-9 bg-gray-100 animate-pulse"></div>
+          )}
+          
+          {/* Image du bâtiment avec transition douce */}
+          <div className={`aspect-w-16 aspect-h-9 transition-opacity duration-700 ${buildingImageLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <img
               src="/uploads/view_building_3D.jpg"
               alt="Résidence Thanys"
               className="object-cover w-full h-full"
+              loading="lazy"
+              onLoad={() => setBuildingImageLoaded(true)}
             />
           </div>
           
-          {/* Bannière pulsante en haut à gauche */}
-          <div className="absolute top-4 left-4 bg-gradient-to-r from-blue-900/90 to-blue-700/90 backdrop-blur-sm text-white px-4 py-2 rounded-r-lg border-l-4 border-gold-500 shadow-lg animate-pulse">
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-emerald-400 rounded-full mr-2"></div>
-              <span className="font-light text-sm tracking-wider">PROGRAMME EN COURS</span>
+          {/* Bannière simple et statique en haut à gauche */}
+            <div className="absolute top-4 left-4 bg-black bg-opacity-70 text-white px-3 py-1 rounded-md text-sm font-medium">
+            PROGRAMME EN COURS
             </div>
-          </div>
         </div>
         
         <div className="p-6">
@@ -141,7 +170,7 @@ export default function Programmes() {
               className="flex-1 bg-gray-900 text-white py-3 shadow hover:bg-gray-800"
             >
               <Link to="/investir" onClick={() => window.scrollTo(0, 0)}>
-                Pré-réserver maintenant ! <ArrowRight className="ml-2 w-4 h-4 inline" />
+                Pré-réserver maintenant <ArrowRight className="ml-2 w-4 h-4 inline" />
               </Link>
             </Button>
             <Button
